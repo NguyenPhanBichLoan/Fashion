@@ -64,6 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 bundle.putInt("id", product.getId());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+                // Luong Thanh Dat
             }
         });
     }
