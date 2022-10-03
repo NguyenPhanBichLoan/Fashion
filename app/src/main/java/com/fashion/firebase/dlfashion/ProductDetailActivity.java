@@ -65,17 +65,6 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         quantity = Integer.parseInt(tvQuantity.getText().toString());
     }
 
-    private void initData() {
-        mPresenter = new ProductDetailPresenter(this);
-        mPresenter.setView(this);
-        Bundle bundle = getIntent().getExtras();
-        if (bundle == null) {
-            return;
-        }
-        id = bundle.getInt("id");
-        product = mPresenter.getProduct(id);
-    }
-
     private void initScrollView() {
         scrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -93,6 +82,17 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                 return false;
             }
         });
+    }
+
+    private void initData() {
+        mPresenter = new ProductDetailPresenter(this);
+        mPresenter.setView(this);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle == null) {
+            return;
+        }
+        id = bundle.getInt("id");
+        product = mPresenter.getProduct(id);
     }
 
     @Override
