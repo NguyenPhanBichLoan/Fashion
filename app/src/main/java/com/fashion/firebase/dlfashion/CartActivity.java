@@ -26,7 +26,8 @@ public class CartActivity extends AppCompatActivity implements CartConstract.IVi
     private CartConstract.IPresenter mPresenter;
     private CartAdapter cartAdapter;
     private RecyclerView rcvCart;
-    private TextView totalCart;
+    private int quantity = 0;
+    private TextView totalCart, totalQuantity;
     private Button btnCheckOut;
     private double total = 0;
 
@@ -42,6 +43,7 @@ public class CartActivity extends AppCompatActivity implements CartConstract.IVi
         cartAdapter.setActionListener(new CartAdapter.ProductItemActionListener() {
             @Override
             public void resetTotal() {
+                quantity = 0;
                 total = 0;
                 getTotal();
             }
@@ -62,6 +64,7 @@ public class CartActivity extends AppCompatActivity implements CartConstract.IVi
         btnCheckOut = findViewById(R.id.btn_check_out);
         totalCart = findViewById(R.id.tv_cart_total);
         rcvCart = findViewById(R.id.rcv_cart);
+        totalQuantity = findViewById(R.id.tv_cart_quantity);
     }
 
     private void initData() {
@@ -84,7 +87,9 @@ public class CartActivity extends AppCompatActivity implements CartConstract.IVi
         for (Item item : itemList) {
             Product product = DatabaseDao.getInstance().getProductDao().find(item.getProduct());
             total = total + (product.getPrice() * item.getQuantity());
+            quantity = quantity + item.getQuantity();
         }
         totalCart.setText("$" + Math.ceil((total * 100) / 100));
+        totalQuantity.setText(quantity + " items");
     }
 }

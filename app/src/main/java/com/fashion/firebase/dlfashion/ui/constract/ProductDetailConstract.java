@@ -13,6 +13,6 @@ public interface ProductDetailConstract {
     interface IPresenter{
         void setView(ProductDetailConstract.IView view);
         Product getProduct(int id);
-        void addToCart(int id, int product);
+        void addToCart(int id, int quantity);
     }
 }

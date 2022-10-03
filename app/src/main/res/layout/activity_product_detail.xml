@@ -221,10 +221,12 @@
             app:cardCornerRadius="5dp">
 
             <ImageView
+                android:onClick="onClick"
+                android:id="@+id/back.home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_shopping_cart_24" />
+                android:src="@drawable/ic_baseline_arrow_back_24" />
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
