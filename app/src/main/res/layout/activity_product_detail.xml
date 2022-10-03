@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout.product.detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProductDetailActivity">
+
+    <ScrollView
+        android:id="@+id/sv_product_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/iv.product.image"
+                android:layout_width="411dp"
+                android:layout_height="530dp"
+                android:background="@color/black"
+                android:scaleType="centerCrop"
+                android:src="@drawable/product"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="2dp"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv.product.name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:text="Men's White Long Sleeve Shirt Nano Antibacterial Anti Wrinkle"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/iv.product.image"
+                tools:ignore="RtlSymmetry" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv.product.price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:text="$499.000"
+                android:textColor="#ff0000"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv.product.name"
+                tools:ignore="RtlSymmetry" />
+
+            <LinearLayout
+                android:id="@+id/layout.quantity"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv.product.price"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="5dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/btn.remove.quantity"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/btn_quantity"
+                            android:onClick="onClick" />
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_baseline_remove_24" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/tv.product.quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <FrameLayout
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/btn.add.quantity"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/btn_quantity"
+                            android:onClick="onClick" />
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_baseline_add_24" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv.product.description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus turpis at nisl consectetur ultrices. Donec eleifend magna fermentum, egestas orci a, porta nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam nec varius ipsum, eu convallis neque. Vivamus cursus sapien nec quam finibus congue. Nullam quam lectus, consectetur eget consectetur a, sodales non augue. Donec faucibus felis sagittis turpis eleifend hendrerit. Quisque nisl quam, vehicula ut tristique eleifend, cursus sit amet eros. Sed lacinia elementum velit, ac convallis lorem pretium sit amet. Vivamus nec nulla ut tellus tincidunt tristique. Donec egestas sodales magna sed porttitor. Ut vestibulum risus quis dolor tristique posuere."
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/layout.quantity"
+                tools:ignore="RtlSymmetry" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="5dp">
+
+        <Button
+            android:id="@+id/btn.buy.now"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/button_custom"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Buy Now"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.10" />
+
+        <Button
+            android:onClick="onClick"
+            android:id="@+id/btn.add.to.cart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/button_custom_2"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Add To Cart"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/iv.product.image.copy"
+        android:layout_width="411dp"
+        android:layout_height="530dp"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        android:src="@drawable/product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:id="@+id/cart.product.detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/gray_light"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_shopping_cart_24" />
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</FrameLayout>
