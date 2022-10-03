@@ -25,5 +25,6 @@ public class CartPresenter implements CartConstract.IPresenter {
     public void getItemList() {
         List<Item> items = DatabaseDao.getInstance().getCartDao().all();
         mView.setItemListToView(items);
+        // Luong Thanh Dat
     }
 }
