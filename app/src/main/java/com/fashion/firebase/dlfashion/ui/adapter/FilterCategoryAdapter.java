@@ -66,7 +66,7 @@ public class FilterCategoryAdapter extends RecyclerView.Adapter<FilterCategoryAd
         }
 
         holder.name.setText(product.getName());
-        holder.price.setText("$" + (Math.round(product.getPrice() * 100) / 100));
+        holder.price.setText("$" + product.getPrice());
         byte[] decodedString = Base64.decode(product.getImage(), Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         holder.image.setImageBitmap(decodedByte);
@@ -90,8 +90,9 @@ public class FilterCategoryAdapter extends RecyclerView.Adapter<FilterCategoryAd
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(actionListener!=null)
-                    actionListener.onItemTap(holder.imageCopy);
+                if(actionListener!=null) {
+                    actionListener.onItemTap(holder.imageCopy, product.getId());
+                }
                 holder.imageCopy.setVisibility(View.VISIBLE);
             }
         });
@@ -126,6 +127,6 @@ public class FilterCategoryAdapter extends RecyclerView.Adapter<FilterCategoryAd
     }
 
     public interface ProductItemActionListener{
-        void onItemTap(ImageView imageView);
+        void onItemTap(ImageView imageView, int id);
     }
 }

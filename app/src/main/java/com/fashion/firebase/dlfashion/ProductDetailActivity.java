@@ -1,6 +1,7 @@
 package com.fashion.firebase.dlfashion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -26,6 +27,7 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
     private TextView name, description, price;
     private ImageView image, imageCopy;
     private Button btnRemoveQuantity, btnAddQuantity, btnBuyNow, btnAddToCart;
+    private AppCompatImageView btnBack;
     private TextView tvQuantity;
     private int id, quantity;
     private ScrollView scrollView;
@@ -53,9 +55,11 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         tvQuantity = findViewById(R.id.tv_product_quantity);
         btnAddQuantity = findViewById(R.id.btn_add_quantity);
         btnBuyNow = findViewById(R.id.btn_buy_now);
+        btnBack = findViewById(R.id.back_home);
         btnAddToCart = findViewById(R.id.btn_add_to_cart);
 
         btnRemoveQuantity.setOnClickListener(this::onClick);
+        btnBack.setOnClickListener(this::onClick);
         btnAddQuantity.setOnClickListener(this::onClick);
         btnAddToCart.setOnClickListener(this::onClick);
         quantity = Integer.parseInt(tvQuantity.getText().toString());
@@ -113,6 +117,10 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
+            case R.id.back_home:
+                Intent back = new Intent(ProductDetailActivity.this, MainActivity.class);
+                startActivity(back);
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());
         }
@@ -127,14 +135,5 @@ public class ProductDetailActivity extends AppCompatActivity implements View.OnC
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         image.setImageBitmap(decodedByte);
         imageCopy.setImageBitmap(decodedByte);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        Intent intent = new Intent(ProductDetailActivity.this, MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

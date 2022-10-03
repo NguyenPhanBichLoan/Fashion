@@ -13,5 +13,6 @@ public interface FilterCategoryConstract {
     interface IPresenter{
         void setView(IView view);
         void getProductListByCategory(int id);
+        void addToCart(int id);
     }
 }
