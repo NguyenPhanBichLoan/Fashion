@@ -42,6 +42,7 @@ public class FilterCategoryActivity extends AppCompatActivity implements FilterC
 
         initGUI();
         initData();
+
         filterCategoryAdapter.setActionListener(new FilterCategoryAdapter.ProductItemActionListener() {
             @Override
             public void onItemTap(ImageView imageView, int id) {
